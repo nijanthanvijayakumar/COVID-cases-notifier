@@ -1,8 +1,6 @@
 from datetime import datetime, timedelta
-
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
-
 from utils import fetch_current_cases
 
 default_args = {
