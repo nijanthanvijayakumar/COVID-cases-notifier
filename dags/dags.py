@@ -16,13 +16,13 @@ default_args = {
     "schedule_interval": "@daily",
 }
 
-with DAG("google_news", default_args=default_args) as dag:
+with DAG("covid_cases_notifier", default_args=default_args) as dag:
 	Task_I = PythonOperator(
-		task_id = "fetch_latest_news"
+		task_id = "fetch_current_cases"
 	)
 
 	Task_II = PythonOperator(
-		task_id = "write_news_to_s3"
+		task_id = ""
 	)
 
 Task_I >> Task_II
