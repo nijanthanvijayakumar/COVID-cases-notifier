@@ -18,11 +18,11 @@ default_args = {
 
 with DAG("google_news", default_args=default_args) as dag:
 	Task_I = PythonOperator(
-
+		task_id = "fetch_latest_news"
 	)
 
 	Task_II = PythonOperator(
-
+		task_id = "write_news_to_s3"
 	)
 
 Task_I >> Task_II
