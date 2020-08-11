@@ -23,8 +23,5 @@ with DAG("covid_cases_notifier", default_args=default_args) as dag:
 		task_id = "fetch_cases", python_callable=fetch_current_cases
 	)
 
-	Task_II = PythonOperator(
-		task_id = ""
-	)
 
-Task_I >> Task_II
+Task_I
