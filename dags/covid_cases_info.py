@@ -1,7 +1,6 @@
 from datetime import datetime, timedelta
 
 from airflow import DAG
-from airflow.operators.email_operator import EmailOperator
 from airflow.operators.python_operator import PythonOperator
 
 from utils import fetch_current_cases
@@ -10,7 +9,6 @@ default_args = {
     "owner": "me",
     "depends_on_past": False,
     "start_date": datetime(2019, 10, 9),
-    # "email": ["my_email@mail.com"],
     "email_on_failure": False,
     "email_on_retry": False,
     "retries": 0,
