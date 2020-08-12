@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+{% for elem in case_data %}
+   <li>
+        Country: {{elem['Country']}}
+        Total Cases: {{elem['Total Cases']}}
+        Active Cases: {{elem['Active Cases']}}
+        New Cases: {{elem['New Cases']}}
+        New Deaths: {{elem['New Deaths']}}
+        Update on: {{elem['Update on']}}
+   </li>
+{% endfor %}
+</ul>
+</body>
+</html>
