@@ -21,6 +21,7 @@ def render_content(**context):
 	with open(input_file, "r+") as content:
 		file_content = content.read().splitlines()
 		cases_dict = {elem.split(": ")[0]: elem.split(": ")[1] for elem in file_content}
+		print(cases_dict)
 
 	root = os.path.dirname(os.path.abspath(__file__))
 	env = Environment(loader=FileSystemLoader(root))
