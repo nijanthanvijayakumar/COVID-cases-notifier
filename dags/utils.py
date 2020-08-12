@@ -22,3 +22,4 @@ def fetch_current_cases():
 			Update on: {5}
 			""".format(current_cases["CountryOrRegion"], current_cases["TotalCases"], current_cases["ActiveCases"], current_cases["NewCases"], current_cases["NewDeaths"], current_cases["LastUpdated"]))
 
+
