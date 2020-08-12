@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+{% for elem in case_data %}
+   <li>
+       <!-- <a href="{{elem['link']}}">{{elem['title'].capitalize()}}</a> tagged: <strong>{{', '.join(elem['tags'])}}</strong> -->
+       <strong>Country:{{elem['country']}}</strong>
+   </li>
+   <li>
+       <strong>Total Cases:{{elem['Total Cases']}}</strong>
+   </li>
+      <li>
+       <strong>Total Cases:{{elem['Total Cases']}}</strong>
+   </li>
+{% endfor %}
+</ul>
+</body>
+</html>
