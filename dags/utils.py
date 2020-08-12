@@ -16,7 +16,7 @@ def fetch_current_cases():
 
 def render_content(**context):
 	input_file = "current_cases_" + str(datetime.date(datetime.now())) + ".txt"
-	with open(file_name, "r+") as content:
+	with open(input_file, "r+") as content:
 		str_content = content.read()
 		task_instance = context["task_instance"]
 		task_instance.xcom_push(key="email_content", value=email_content)
