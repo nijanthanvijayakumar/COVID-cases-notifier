@@ -20,10 +20,11 @@ with DAG("covid_cases_notifier", default_args=default_args) as dag:
 		task_id = "fetch_cases", python_callable=fetch_current_cases
 	)
 
-    Task_II = EmailOperator(
-        task_id="send_email",
-        to="niju.vijayakumar@accenture.com",
-        subject="Covid-19 Cases in Australia today",
-        html_content="")
+	Task_II = EmailOperator(
+		task_id="send_email",
+		to="niju.vijayakumar@accenture.com",
+		subject="Covid-19 Cases in Australia today",
+		html_content=""
+	)
 
-Task_I
+Task_I >> Task_II
