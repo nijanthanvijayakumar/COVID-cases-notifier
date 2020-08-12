@@ -27,11 +27,11 @@ with DAG("covid_cases_notifier", default_args=default_args) as dag:
 		provide_context = True,
 	)
 
-	Task_II = EmailOperator(
+	Task_III = EmailOperator(
 		task_id="send_email",
 		to="niju.vijayakumar@accenture.com",
 		subject="Covid-19 Cases in Australia for {{ds}}",
-		html_content=""
+		email_content="{{ task_instance.xcom_pull(task_ids='render_content', key='render_content') }}",
 	)
 
-Task_I >> Task_II
+Task_I >> Task_II >> Task_III
