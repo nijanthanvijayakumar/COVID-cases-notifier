@@ -10,13 +10,8 @@ def fetch_current_cases():
 	Uses webscraping to fetch the current covid cases in Australia and writes it to a file.
 	"""
 	current_cases = covid.get_country_cases("Australia")
-	time_stamp = str(datetime.date(datetime.now()))
-	file_name = "current_cases_" + time_stamp + ".txt"
+	file_name = "current_cases_" + str(datetime.date(datetime.now())) + ".txt"
 	with open(file_name, "w+") as covid_data:
-		covid_data.write("Country: {0}\nTotal Cases: {1}\nActive Cases: {2}\nNew Cases: {3}\nNew Deaths: {4}\nUpdate on: {5}".format(current_cases["CountryOrRegion"], current_cases["TotalCases"], current_cases["ActiveCases"], current_cases["NewCases"], current_cases["NewDeaths"], current_cases["LastUpdated"]))
+		covid_data.write("Country\t: {0}\nTotal Cases\t: {1}\nActive Cases\t: {2}\nNew Cases\t: {3}\nNew Deaths\t: {4}\nUpdate on\t: {5}".format(current_cases["CountryOrRegion"], current_cases["TotalCases"], current_cases["ActiveCases"], current_cases["NewCases"], current_cases["NewDeaths"], current_cases["LastUpdated"]))
 
-
-def render_template():
-
-
-
+def render_content(**context):
