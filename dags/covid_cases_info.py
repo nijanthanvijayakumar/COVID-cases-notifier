@@ -7,11 +7,11 @@ from utils import fetch_current_cases
 default_args = {
     "owner": "me",
     "depends_on_past": False,
-    "start_date": datetime(2019, 10, 9),
+    "start_date": datetime(2020, 8, 12),
     "email_on_failure": False,
     "email_on_retry": False,
     "retries": 0,
-    "retry_delay": timedelta(minutes=1),
+    "retry_delay": timedelta(minutes=15),
     "schedule_interval": "@daily",
 }
 
