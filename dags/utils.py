@@ -22,9 +22,6 @@ def render_content(**context):
 		file_content = content.read().splitlines()
 		cases_dict = {elem.split(": ")[0]: elem.split(": ")[1] for elem in file_content}
 
-	# root = os.path.dirname(os.path.abspath(__file__))
-	# env = Environment(loader=FileSystemLoader(root))
-	# template = env.get_template("email_template.html")
 	str_content = f"""Country: {cases_dict['Country']}\nTotal Cases: {cases_dict['Total Cases']}\nActive Cases: {cases_dict['Active Cases']}\nNew Cases: {cases_dict['New Cases']}\nNew Deaths: {cases_dict['New Deaths']}\nUpdated on: {cases_dict['Updated on']}"""
 	task_instance = context["task_instance"]
 	task_instance.xcom_push(key="email_content", value=str_content)
