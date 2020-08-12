@@ -30,7 +30,7 @@ with DAG("covid_cases_notifier", default_args=default_args) as dag:
 	Task_II = EmailOperator(
 		task_id="send_email",
 		to="niju.vijayakumar@accenture.com",
-		subject="Covid-19 Cases in Australia today",
+		subject="Covid-19 Cases in Australia for {{ds}}",
 		html_content=""
 	)
 
