@@ -8,12 +8,12 @@
 <ul>
 {% for elem in case_data %}
    <li>
-        elem['Country']
-        elem['Total Cases']
-        elem['Active Cases']
-        elem['New Cases']
-        elem['New Deaths']
-        elem['Update on']
+        Country: {{elem['Country']}}
+        Total Cases: {{elem['Total Cases']}}
+        Active Cases: {{elem['Active Cases']}}
+        New Cases: {{elem['New Cases']}}
+        New Deaths: {{elem['New Deaths']}}
+        Update on: {{elem['Update on']}}
    </li>
 {% endfor %}
 </ul>
