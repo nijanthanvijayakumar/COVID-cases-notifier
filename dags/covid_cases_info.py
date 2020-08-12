@@ -31,7 +31,7 @@ with DAG("covid_cases_notifier", default_args=default_args) as dag:
 		task_id="send_email",
 		to="niju.vijayakumar@accenture.com",
 		subject="Covid-19 Cases in Australia for {{ds}}",
-		email_content="{{ task_instance.xcom_pull(task_ids='email_content', key='email_content') }}",
+		html_content="{{ task_instance.xcom_pull(task_ids='render_content', key='email_content') }}",
 	)
 
 Task_I >> Task_II >> Task_III
