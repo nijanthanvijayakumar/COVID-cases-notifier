@@ -22,7 +22,7 @@ def render_content(**context):
 		file_content = content.read().splitlines()
 		cases_dict = {elem.split(": ")[0]: elem.split(": ")[1] for elem in file_content}
 
-	cases_content = json.loads(str(cases_dict))
+	cases_content = json.loads(json.dumps(cases_dict))
 
 	root = os.path.dirname(os.path.abspath(__file__))
 	env = Environment(loader=FileSystemLoader(root))
