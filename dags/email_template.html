@@ -8,22 +8,12 @@
 <ul>
 {% for elem in case_data %}
    <li>
-       <strong>Country:>
-   </li>
-   <li>
-       <strong>Total Cases:</strong>
-   </li>
-   <li>
-       <strong>Active Cases:</strong>
-   </li>
-   <li>
-       <strong>New Cases:</strong>
-   </li>
-   <li>
-       <strong>New Deaths:</strong>
-   </li>
-   <li>
-       <strong>Update on:</strong>
+        elem['Country']
+        elem['Total Cases']
+        elem['Active Cases']
+        elem['New Cases']
+        elem['New Deaths']
+        elem['Update on']
    </li>
 {% endfor %}
 </ul>
