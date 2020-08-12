@@ -17,7 +17,14 @@ default_args = {
 
 with DAG("covid_cases_notifier", default_args=default_args) as dag:
 	Task_I = PythonOperator(
-		task_id = "fetch_cases", python_callable=fetch_current_cases
+		task_id = "fetch_cases",
+		python_callable=fetch_current_cases
+	)
+
+	Task_II = PythonOperator(
+		task_id = "render_content",
+		python_callable=render_content,
+		provide_context = True,
 	)
 
 	Task_II = EmailOperator(
