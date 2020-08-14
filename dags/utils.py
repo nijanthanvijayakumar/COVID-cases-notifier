@@ -13,7 +13,10 @@ def fetch_current_cases():
 	with open(file_name, "w+") as covid_data:
 		covid_data.write("Country: {0}\nTotal Cases: {1}\nActive Cases: {2}\nNew Cases: {3}\nNew Deaths: {4}\nUpdated on: {5}".format(current_cases["CountryOrRegion"], current_cases["TotalCases"], current_cases["ActiveCases"], current_cases["NewCases"], current_cases["NewDeaths"], current_cases["LastUpdated"]))
 
-def render_content(**context):
+def create_email_content(**context):
+	"""
+
+	"""
 	cases_dict = {}
 	input_file = "current_cases_" + str(datetime.date(datetime.now())) + ".txt"
 	with open(input_file, "r+") as content:
