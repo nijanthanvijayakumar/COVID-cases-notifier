@@ -15,7 +15,7 @@ def fetch_current_cases():
 
 def create_email_content(**context):
 	"""
-
+	Generates the email content from the file
 	"""
 	cases_dict = {}
 	input_file = "current_cases_" + str(datetime.date(datetime.now())) + ".txt"
