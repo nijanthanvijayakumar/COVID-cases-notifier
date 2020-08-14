@@ -130,4 +130,5 @@ dmypy.json
 
 # VS Code exclusions
 .workspace
-dags/.DS_Store
+dags_files/.DS_Store
+.DS_Store
