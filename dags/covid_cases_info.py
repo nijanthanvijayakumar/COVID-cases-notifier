@@ -7,7 +7,7 @@ from utils import fetch_current_cases, render_content
 default_args = {
     "owner": "me",
     "depends_on_past": False,
-    "start_date": datetime(2020, 8, 12),
+    "start_date": datetime(2020, 8, 13),
     "email_on_failure": False,
     "email_on_retry": False,
     "retries": 0,
