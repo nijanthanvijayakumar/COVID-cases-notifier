@@ -1,10 +1,8 @@
-import json
-import os
-from datetime import datetime, timedelta
-
 import requests
 import covid19cases as covid
 from jinja2 import Environment, FileSystemLoader
+from datetime import datetime, timedelta
+
 
 def fetch_current_cases():
 	"""
