@@ -35,8 +35,8 @@ with DAG("covid_cases_notifier", default_args=default_args) as dag:
 	)
 
 	Task_II = PythonOperator(
-		task_id = "render_content",
-		python_callable=render_content,
+		task_id = "create_email_content",
+		python_callable=create_email_content,
 		provide_context = True,
 	)
 
@@ -44,7 +44,7 @@ with DAG("covid_cases_notifier", default_args=default_args) as dag:
 		task_id="send_email",
 		to="",
 		subject="COVID-19 cases in Australia for {{ds}}",
-		html_content="{{ task_instance.xcom_pull(task_ids='render_content', key='email_content') }}",
+		html_content="{{ task_instance.xcom_pull(task_ids='create_email_content', key='email_content') }}",
 	)
 
 Task_I >> Task_II >> Task_III
