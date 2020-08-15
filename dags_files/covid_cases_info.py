@@ -6,6 +6,7 @@ from airflow.operators.python_operator import PythonOperator
 from datetime import datetime, timedelta
 from helper_utils import fetch_current_cases, create_email_content
 
+# Read the JSON config file to get dynamic input values to DAG
 covid_cfg = {}
 config_file_path = os.path.dirname(os.path.abspath(__file__))
 with open(config_file_path+"/covid_config.json", "r+") as jsoncfg:
@@ -13,6 +14,7 @@ with open(config_file_path+"/covid_config.json", "r+") as jsoncfg:
 	print(covid_cfg)
 	print(type(covid_cfg))
 
+# Form the arguments to be passed to DAG
 default_args = {
     "owner": "me",
     "depends_on_past": False,
@@ -26,6 +28,7 @@ default_args = {
     "country_name": covid_cfg["country"]
 }
 
+# Define the DAG and tasks within the DAG.
 with DAG("covid_cases_notifier", default_args=default_args) as dag:
 	Task_I = PythonOperator(
 		task_id = "fetch_cases",
@@ -45,4 +48,5 @@ with DAG("covid_cases_notifier", default_args=default_args) as dag:
 		html_content="{{ task_instance.xcom_pull(task_ids='create_email_content', key='email_content') }}",
 	)
 
+# Define the order of execution of the DAG
 Task_I >> Task_II >> Task_III
