@@ -8,6 +8,8 @@ def fetch_current_cases(*op_args):
 	"""
 	Uses webscraping to fetch the current covid cases in Australia and writes it to a file.
 	"""
+	print(op_args[0])
+	print(type(op_args[0]))
 	current_cases = covid.get_country_cases(op_args[0])
 	file_name = "current_cases_" + str(datetime.date(datetime.now())) + ".txt"
 	with open(file_name, "w+") as covid_data:
