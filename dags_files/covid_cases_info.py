@@ -32,19 +32,20 @@ default_args = {
 with DAG("covid_cases_notifier", default_args=default_args) as dag:
 	Task_I = PythonOperator(
 		task_id = "fetch_cases",
-		python_callable=fetch_current_cases
+		python_callable = fetch_current_cases,
+		op_args = default_args["country_name"]
 	)
 
 	Task_II = PythonOperator(
 		task_id = "create_email_content",
-		python_callable=create_email_content,
+		python_callable = create_email_content,
 		provide_context = True,
 	)
 
 	Task_III = EmailOperator(
 		task_id="send_email",
 		to=default_args["to_mail_id"],
-		subject="COVID-19 cases in {{country_name}} for {{ds}}",
+		subject="COVID-19 cases in {0} for {{ds}}".format(default_args["country_name"]),
 		html_content="{{ task_instance.xcom_pull(task_ids='create_email_content', key='email_content') }}",
 	)
 

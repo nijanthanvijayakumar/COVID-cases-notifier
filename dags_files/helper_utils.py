@@ -4,11 +4,11 @@ from jinja2 import Environment, FileSystemLoader
 from datetime import datetime, timedelta
 
 
-def fetch_current_cases():
+def fetch_current_cases(*op_args):
 	"""
 	Uses webscraping to fetch the current covid cases in Australia and writes it to a file.
 	"""
-	current_cases = covid.get_country_cases(country_name)
+	current_cases = covid.get_country_cases(op_args[0])
 	file_name = "current_cases_" + str(datetime.date(datetime.now())) + ".txt"
 	with open(file_name, "w+") as covid_data:
 		covid_data.write("Country: {0}\nTotal Cases: {1}\nActive Cases: {2}\nNew Cases: {3}\nNew Deaths: {4}\nUpdated on: {5}".format(current_cases["CountryOrRegion"], current_cases["TotalCases"], current_cases["ActiveCases"], current_cases["NewCases"], current_cases["NewDeaths"], current_cases["LastUpdated"]))
