@@ -6,16 +6,12 @@ from airflow.operators.python_operator import PythonOperator
 from datetime import datetime, timedelta
 from helper_utils import fetch_current_cases, create_email_content
 
-# TODO: Place a config file in the same folder.
-# TODO: Create empty variables in the driver function.
-# TODO: Create a function in driver to read the config file.
 covid_cfg = {}
 config_file_path = os.path.dirname(os.path.abspath(__file__))
 with open(config_file_path+"/covid_config.json", "r+") as jsoncfg:
 	covid_cfg = json.load(ymlfile)
 	print(covid_cfg)
 	print(type(covid_cfg))
-# TODO: Assign the variables with the values read from the config file.
 
 default_args = {
     "owner": "me",
