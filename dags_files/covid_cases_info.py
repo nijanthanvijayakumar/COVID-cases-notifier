@@ -43,7 +43,7 @@ with DAG("covid_cases_notifier", default_args=default_args) as dag:
 
 	Task_III = EmailOperator(
 		task_id="send_email",
-		to=to_mail_id,
+		to=default_args["to_mail_id"],
 		subject="COVID-19 cases in {{country_name}} for {{ds}}",
 		html_content="{{ task_instance.xcom_pull(task_ids='create_email_content', key='email_content') }}",
 	)
