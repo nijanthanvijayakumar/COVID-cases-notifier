@@ -4,6 +4,11 @@ from airflow.operators.python_operator import PythonOperator
 from datetime import datetime, timedelta
 from helper_utils import fetch_current_cases, render_content
 
+# TODO: Place a config file in the same folder.
+# TODO: Create empty variables in the driver function.
+# TODO: Create a function in driver to read the config file.
+# TODO: Assign the variables with the values read from the config file.
+
 default_args = {
     "owner": "me",
     "depends_on_past": False,
