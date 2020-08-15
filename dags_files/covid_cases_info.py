@@ -1,5 +1,5 @@
 import os
-import yaml
+import json
 from airflow import DAG
 from airflow.operators.email_operator import EmailOperator
 from airflow.operators.python_operator import PythonOperator
@@ -11,8 +11,8 @@ from helper_utils import fetch_current_cases, create_email_content
 # TODO: Create a function in driver to read the config file.
 covid_cfg = {}
 config_file_path = os.path.dirname(os.path.abspath(__file__))
-with open(config_file_path+"/covid_config.yml", "r+") as ymlfile:
-	covid_cfg = yaml.load(ymlfile)
+with open(config_file_path+"/covid_config.json", "r+") as jsoncfg:
+	covid_cfg = json.load(ymlfile)
 	print(covid_cfg)
 	print(type(covid_cfg))
 # TODO: Assign the variables with the values read from the config file.
