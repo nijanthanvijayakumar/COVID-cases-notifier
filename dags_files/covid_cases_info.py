@@ -2,13 +2,13 @@ from airflow import DAG
 from airflow.operators.email_operator import EmailOperator
 from airflow.operators.python_operator import PythonOperator
 from datetime import datetime, timedelta
-from helper_utils import fetch_current_cases, render_content
+from helper_utils import fetch_current_cases, create_email_content
 
 # TODO: Place a config file in the same folder.
 # TODO: Create empty variables in the driver function.
 country_name = email = ""
 # TODO: Create a function in driver to read the config file.
-with open("covid_config.yml") as ymlfile:
+with open("covid_config.yml", "r+") as ymlfile:
 	covid_cfg = yaml.load(ymlfile)
 	print(covid_cfg)
 	print(type(covid_cfg))
