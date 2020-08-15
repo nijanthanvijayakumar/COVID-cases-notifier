@@ -10,7 +10,7 @@ from helper_utils import fetch_current_cases, create_email_content
 covid_cfg = {}
 config_file_path = os.path.dirname(os.path.abspath(__file__))
 with open(config_file_path+"/covid_config.json", "r+") as jsoncfg:
-	covid_cfg = json.load(ymlfile)
+	covid_cfg = json.load(jsoncfg)
 	print(covid_cfg)
 	print(type(covid_cfg))
 
