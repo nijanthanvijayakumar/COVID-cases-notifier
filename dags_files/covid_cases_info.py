@@ -8,7 +8,6 @@ from helper_utils import fetch_current_cases, create_email_content
 
 # TODO: Place a config file in the same folder.
 # TODO: Create empty variables in the driver function.
-country_name = email = ""
 # TODO: Create a function in driver to read the config file.
 config_file_path = os.path.dirname(os.path.abspath(__file__))
 with open(config_file_path+"/covid_config.yml", "r+") as ymlfile:
