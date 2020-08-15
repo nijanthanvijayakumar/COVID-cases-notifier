@@ -11,9 +11,7 @@ covid_cfg = {}
 config_file_path = os.path.dirname(os.path.abspath(__file__))
 with open(config_file_path+"/covid_config.json", "r+") as jsoncfg:
 	covid_cfg = json.load(jsoncfg)
-	print(covid_cfg)
-	print(type(covid_cfg))
-
+	
 # Form the arguments to be passed to DAG
 default_args = {
     "owner": "me",
