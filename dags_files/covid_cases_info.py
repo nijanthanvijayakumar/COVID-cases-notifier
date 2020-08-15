@@ -6,7 +6,12 @@ from helper_utils import fetch_current_cases, render_content
 
 # TODO: Place a config file in the same folder.
 # TODO: Create empty variables in the driver function.
+country_name = email = ""
 # TODO: Create a function in driver to read the config file.
+with open("covid_config.yml") as ymlfile:
+	covid_cfg = yaml.load(ymlfile)
+	print(covid_cfg)
+	print(type(covid_cfg))
 # TODO: Assign the variables with the values read from the config file.
 
 default_args = {
