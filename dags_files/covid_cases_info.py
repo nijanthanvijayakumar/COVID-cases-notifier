@@ -33,7 +33,7 @@ with DAG("covid_cases_notifier", default_args=default_args) as dag:
 	Task_I = PythonOperator(
 		task_id = "fetch_cases",
 		python_callable = fetch_current_cases,
-		op_args = default_args["country_name"]
+		op_args = [default_args["country_name"]]
 	)
 
 	Task_II = PythonOperator(
