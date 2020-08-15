@@ -9,6 +9,7 @@ from helper_utils import fetch_current_cases, create_email_content
 # TODO: Place a config file in the same folder.
 # TODO: Create empty variables in the driver function.
 # TODO: Create a function in driver to read the config file.
+covid_cfg = {}
 config_file_path = os.path.dirname(os.path.abspath(__file__))
 with open(config_file_path+"/covid_config.yml", "r+") as ymlfile:
 	covid_cfg = yaml.load(ymlfile)
@@ -25,6 +26,8 @@ default_args = {
     "retries": 0,
     "retry_delay": timedelta(minutes=15),
     "schedule_interval": "@daily",
+    "to_mail_id": covid_cfg["to_email"],
+    "country_name": covid_cfg["country"]
 }
 
 with DAG("covid_cases_notifier", default_args=default_args) as dag:
@@ -41,8 +44,8 @@ with DAG("covid_cases_notifier", default_args=default_args) as dag:
 
 	Task_III = EmailOperator(
 		task_id="send_email",
-		to="",
-		subject="COVID-19 cases in Australia for {{ds}}",
+		to=to_mail_id,
+		subject="COVID-19 cases in {{country_name}} for {{ds}}",
 		html_content="{{ task_instance.xcom_pull(task_ids='create_email_content', key='email_content') }}",
 	)
 
