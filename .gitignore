@@ -133,3 +133,8 @@ dmypy.json
 dags_files/.DS_Store
 .DS_Store
 dags_files/current_cases*.txt
+
+
+# PyCharm
+**./inspectionProfiles/
+**./idea/
